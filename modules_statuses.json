@@ -1,5 +1,9 @@
 {
     "User": true,
     "Role": true,
-    "Menu": true
+    "Menu": true,
+    "Base": true,
+    "Module": true,
+    "Orders": true,
+    "Example": true
 }

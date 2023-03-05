@@ -11,6 +11,9 @@
 |
 */
 
-Route::prefix('menu')->group(function() {
-    Route::get('/', 'MenuController@index');
-});
+Route::prefix('menus')
+    ->name('menu:')
+    ->group(function() {
+        Route::get('/', 'MenuController@index')->name('index');
+        Route::get('/create', 'MenuController@create')->name('create');
+    });

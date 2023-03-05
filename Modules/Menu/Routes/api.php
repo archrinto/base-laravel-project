@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
-
+use Modules\Menu\Http\Controllers\MenuApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +12,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/menu', function (Request $request) {
-    return $request->user();
-});
+Route::prefix('/menus')
+    ->name('menu:api.')
+    ->middleware([])
+    ->group(function () {
+        Route::post('/', [MenuApiController::class, 'datatable'])->name('datatable');
+        Route::get('/options', [MenuApiController::class, 'options'])->name('options');
+        Route::get('/routes', [MenuApiController::class, 'routes'])->name('routes');
+    });
